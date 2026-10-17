@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: fit_app_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: fit_tracker_db
+      POSTGRES_USER: fit_user
+      POSTGRES_PASSWORD: fit_password
+    ports:
+      - "5435:5432" # Wolny port 5435 na Twoim komputerze -> 5432 w kontenerze
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fit_user -d fit_tracker_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

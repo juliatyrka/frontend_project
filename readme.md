@@ -29,3 +29,13 @@ NutriTrack pozwala użytkownikom na wygodne kontrolowanie dziennego spożycia ka
 * **Frontend:** HTML5, CSS3, JavaScript / React (do ustalenia)
 
 * **Baza Danych:** PostgreSQL
+
+## Baza danych w Dockerze
+
+### Wymagania
+- Docker Desktop / Docker Engine
+
+### Uruchomienie bazy danych
+1. Uruchom kontener z bazą PostgreSQL:
+   ```bash
+   docker-compose up -d
