@@ -12,7 +12,7 @@ NutriTrack to intuicyjna aplikacja webowa służąca do kompleksowego prowadzeni
 
 | Osoba | GitHub | Część projektu | Issues |
 | :--- | :--- | :--- | :--- |
-| **Julia Tyrka** | [@juliatyrka](https://github.com/jkowalski) | Frontend, API integration, Backend FastAPI, Baza danych PostgreSQL (+Docker), Panel Admina | [lista](../../issues?q=assignee:jkowalski) |
+| **Julia Tyrka** | [@juliatyrka](https://github.com/jkowalski) | Frontend, API integration, Backend FastAPI, Baza danych PostgreSQL (+Docker), Panel Admina | [lista](../../issues?q=assignee:juliatyrka) |
 
 
 ## Technologia
