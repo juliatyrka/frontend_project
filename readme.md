@@ -12,7 +12,7 @@ NutriTrack to intuicyjna aplikacja webowa służąca do kompleksowego prowadzeni
 
 | Osoba | GitHub | Część projektu | Issues |
 | :--- | :--- | :--- | :--- |
-| **Julia Tyrka** | [@juliatyrka](https://github.com/jkowalski) | Frontend, API integration, Backend FastAPI, Baza danych PostgreSQL (+Docker), Panel Admina | [lista](../../issues?q=assignee:juliatyrka) |
+| **Julia Tyrka** | [@juliatyrka](https://github.com/juliatyrka) | Frontend, API integration, Backend FastAPI, Baza danych PostgreSQL (+Docker), Panel Admina | [lista](../../issues?q=assignee:juliatyrka) |
 
 
 ## Technologia
@@ -34,7 +34,7 @@ NutriTrack to intuicyjna aplikacja webowa służąca do kompleksowego prowadzeni
 | 5 | Kalkulator BMR / TDEE i ustawianie celów | #5 | @juliatyrka | M3 | do zrobienia |
 
 
-## Opisy Funkcji (Szczegóły / Wzór do GitHub Issues)
+## Opisy Funkcji
 
 ### 1. Dziennik spożycia i podsumowanie kalorii
 * **Co robi użytkownik:** Wybiera dzień z kalendarza, przegląda zjedzone posiłki z podziałem na pory dnia (śniadanie, obiad, kolacja, przekąski) oraz widzi dynamiczny wskaźnik pozostałych kalorii i makroskładników.
