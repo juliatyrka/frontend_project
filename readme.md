@@ -27,7 +27,7 @@ NutriTrack to intuicyjna aplikacja webowa służąca do kompleksowego prowadzeni
 
 | # | Funkcja | Issue | Assignee | Etap | Stan |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| 1 | Wyszukiwanie produktów | #3 | M1 – MVP | w trakcie |
+| 1 | Wyszukiwanie produktów | #3 | M1 – MVP | zrobione |
 | 2 | Dziennik posiłków i bilans dnia | #4 | M1 – MVP | w trakcie |
 | 3 | Dodawanie własnych produktów przez użytkownika | #5 | M1 – MVP | do zrobienia |
 | 4 | Kalkulator zapotrzebowania kalorycznego (BMR / TDEE) | #6 | M2 – Rozszerzenie | do zrobienia |
