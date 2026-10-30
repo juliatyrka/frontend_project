@@ -27,12 +27,12 @@ NutriTrack to intuicyjna aplikacja webowa służąca do kompleksowego prowadzeni
 
 | # | Funkcja | Issue | Assignee | Etap | Stan |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| 1 | Dziennik spożycia i podsumowanie kalorii | #1 | @juliatyrka | M1 | do zrobienia |
-| 2 | Wyszukiwanie produktów z bazy globalnej | #2 | @juliatyrka | M1 | do zrobienia |
-| 3 | Dodawanie własnego produktu / napoju | #3 | @juliatyrka | M2 | do zrobienia |
-| 4 | Panel Moderacji i Akceptacji Admina | #4 | @juliatyrka | M2 | do zrobienia |
-| 5 | Kalkulator BMR / TDEE i ustawianie celów | #5 | @juliatyrka | M3 | do zrobienia |
-
+| 1 | Wyszukiwanie produktów | #3 | M1 – MVP | w trakcie |
+| 2 | Dziennik posiłków i bilans dnia | #4 | M1 – MVP | w trakcie |
+| 3 | Dodawanie własnych produktów przez użytkownika | #5 | M1 – MVP | do zrobienia |
+| 4 | Kalkulator zapotrzebowania kalorycznego (BMR / TDEE) | #6 | M2 – Rozszerzenie | do zrobienia |
+| 5 | Panel moderacji administratora | #7 | M2 – Rozszerzenie | do zrobienia |
+| 6 | Rejestracja, logowanie i role użytkowników (JWT) | #8 | M3 – Bezpieczeństwo | do zrobienia |
 
 ## Opisy Funkcji
 
