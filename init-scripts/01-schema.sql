@@ -23,20 +23,25 @@ CREATE TABLE products (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE daily_logs (
+CREATE TABLE IF NOT EXISTS daily_logs (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    entry_date DATE NOT NULL DEFAULT CURRENT_DATE,
-    CONSTRAINT unique_user_per_day UNIQUE(user_id, entry_date)
+    date DATE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT unique_user_date UNIQUE (user_id, date)
 );
 
-CREATE TABLE log_entries (
+CREATE TABLE IF NOT EXISTS log_entries (
     id SERIAL PRIMARY KEY,
     daily_log_id INT NOT NULL REFERENCES daily_logs(id) ON DELETE CASCADE,
     product_id INT NOT NULL REFERENCES products(id) ON DELETE RESTRICT,
-    meal_type VARCHAR(20) NOT NULL CHECK (meal_type IN ('BREAKFAST', 'LUNCH', 'DINNER', 'SNACK')),
-    weight_g INT NOT NULL CHECK (weight_g > 0),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    meal_type VARCHAR(30) NOT NULL,
+    weight_g INT NOT NULL,
+    calories INT NOT NULL,
+    protein_g NUMERIC(5, 1) NOT NULL,
+    carbs_g NUMERIC(5, 1) NOT NULL,
+    fat_g NUMERIC(5, 1) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX idx_products_name ON products(name);

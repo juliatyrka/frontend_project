@@ -1,0 +1,57 @@
+.search-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: sans-serif;
+}
+.search-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.status-text {
+  text-align: center;
+  color: #666;
+}
+.error {
+  color: red;
+}
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.result-item {
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.result-item:hover {
+  background-color: #f9f9f9;
+}
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  color: white;
+}
+.badge.local { background-color: #4CAF50; }
+.badge.openfoodfacts { background-color: #2196F3; }
+.product-macros {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: #444;
+}
+.per-100g { color: #888; font-size: 11px; }
