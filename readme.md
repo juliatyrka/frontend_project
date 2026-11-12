@@ -25,14 +25,14 @@ NutriTrack to intuicyjna aplikacja webowa służąca do kompleksowego prowadzeni
 
 ## Funkcjonalności
 
-| # | Funkcja | Issue | Assignee | Etap | Stan |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| 1 | Wyszukiwanie produktów | #3 | M1 – MVP | ✅ Zrobione |
-| 2 | Dziennik posiłków i bilans dnia | #4 | M1 – MVP | ✅ Zrobione |
-| 3 | Dodawanie własnych produktów przez użytkownika | #5 | M1 – MVP | ✅ Zrobione |
-| 4 | Kalkulator zapotrzebowania kalorycznego (BMR / TDEE) | #6 | M2 – Rozszerzenie | do zrobienia |
-| 5 | Panel moderacji administratora | #7 | M2 – Rozszerzenie | do zrobienia |
-| 6 | Rejestracja, logowanie i role użytkowników (JWT) | #8 | M3 – Bezpieczeństwo | do zrobienia |
+| # | Funkcja | Issue | Assignee | Etap 
+| :---: | :--- | :---: | :---: | :---: 
+| 1 | Wyszukiwanie produktów | #3 | M1 – MVP | ✅ Zrobione 
+| 2 | Dziennik posiłków i bilans dnia | #4 | M1 – MVP | ✅ Zrobione 
+| 3 | Dodawanie własnych produktów przez użytkownika | #5 | M1 – MVP | ✅ Zrobione 
+| 4 | Kalkulator zapotrzebowania kalorycznego (BMR / TDEE) | #6 | M2 – Rozszerzenie | ✅ Zrobione 
+| 5 | Panel moderacji administratora | #7 | M2 – Rozszerzenie | ✅ Zrobione 
+| 6 | Rejestracja, logowanie i role użytkowników (JWT) | #8 | M3 – Bezpieczeństwo | ✅ Zrobione 
 
 ### Szczegóły funkcji:
 1. **Wyszukiwanie produktów ([#3](../../issues/3)):** Wyszukiwarka z opóźnieniem (debounce 300 ms) oraz `AbortController` łącząca lokalne API, własne produkty oraz Open Food Facts. Obsługuje przeliczanie kcal i B/W/T na bieżąco dla podanej gramatury.
