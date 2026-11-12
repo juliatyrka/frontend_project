@@ -1,0 +1,128 @@
+.daily-log-section {
+  margin-top: 2.5rem;
+  border-top: 1px solid #374151;
+  padding-top: 2rem;
+}
+
+.summary-card {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.kcal-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  font-size: 1.05rem;
+}
+
+.progress-track {
+  width: 100%;
+  height: 14px;
+  background-color: #111827;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #10b981;
+  transition: width 0.25s ease;
+}
+
+.progress-fill.over {
+  background-color: #ef4444;
+}
+
+.macros-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.meals-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.meal-group-card {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+
+.meal-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.meal-group-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.meal-kcal {
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+.empty-meal {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.meal-entries-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.meal-entry-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  background-color: #111827;
+  border-radius: 6px;
+}
+
+.entry-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.entry-details {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.btn-delete {
+  background-color: transparent;
+  color: #f87171;
+  border: 1px solid #ef4444;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-delete:hover {
+  background-color: #ef4444;
+  color: #ffffff;
+}

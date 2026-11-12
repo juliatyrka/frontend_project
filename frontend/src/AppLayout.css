@@ -1,0 +1,50 @@
+.app-header {
+  background-color: #1f2937;
+  border-bottom: 1px solid #374151;
+  padding: 0.85rem 1rem;
+}
+
+.header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f9fafb;
+}
+
+.main-nav {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-link {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+.nav-link:hover {
+  background-color: #374151;
+  color: #ffffff;
+}
+
+.nav-link.active {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.main-content {
+  max-width: 720px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1rem;
+}
