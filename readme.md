@@ -27,42 +27,20 @@ NutriTrack to intuicyjna aplikacja webowa służąca do kompleksowego prowadzeni
 
 | # | Funkcja | Issue | Assignee | Etap | Stan |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| 1 | Wyszukiwanie produktów | #3 | M1 – MVP | zrobione |
-| 2 | Dziennik posiłków i bilans dnia | #4 | M1 – MVP | w trakcie |
-| 3 | Dodawanie własnych produktów przez użytkownika | #5 | M1 – MVP | do zrobienia |
+| 1 | Wyszukiwanie produktów | #3 | M1 – MVP | ✅ Zrobione |
+| 2 | Dziennik posiłków i bilans dnia | #4 | M1 – MVP | ✅ Zrobione |
+| 3 | Dodawanie własnych produktów przez użytkownika | #5 | M1 – MVP | ✅ Zrobione |
 | 4 | Kalkulator zapotrzebowania kalorycznego (BMR / TDEE) | #6 | M2 – Rozszerzenie | do zrobienia |
 | 5 | Panel moderacji administratora | #7 | M2 – Rozszerzenie | do zrobienia |
 | 6 | Rejestracja, logowanie i role użytkowników (JWT) | #8 | M3 – Bezpieczeństwo | do zrobienia |
 
-## Opisy Funkcji
-
-### 1. Dziennik spożycia i podsumowanie kalorii
-* **Co robi użytkownik:** Wybiera dzień z kalendarza, przegląda zjedzone posiłki z podziałem na pory dnia (śniadanie, obiad, kolacja, przekąski) oraz widzi dynamiczny wskaźnik pozostałych kalorii i makroskładników.
-* **Widok:** `/dziennik` (Główny Dashboard)
-* **Dane:** Stan globalny zasilany z REST API (`GET /api/summary/{user_id}`).
-* **Najtrudniejsze:** Dynamiczne przeliczanie makroskładników w czasie rzeczywistym i aktualizacja paska postępu po usunięciu/dodaniu wpisu.
-* **Gotowe, gdy:** Użytkownik po zalogowaniu od razu widzi poprawny stan pozostałych kalorii na dany dzień, a dodanie produktu aktualizuje wskaźniki.
-
-### 2. Wyszukiwanie produktów z bazy globalnej
-* **Co robi użytkownik:** Wpisuje nazwę produktu w oknie wyszukiwania (np. "pierś z kurczaka"), widzi listę podpowiedzi z przelicznikiem na $100\text{ g}$, określa masę w gramach i dodaje produkt do wybranego posiłku.
-* **Widok:** Modale / Formularz dodawania posiłku na `/dziennik`
-* **Dane:** REST API (`GET /api/products?search=...`), dane zapisane w tabeli `products` w PostgreSQL.
-* **Najtrudniejsze:** Live search z debouncem ($300\text{ ms}$ delay) oraz automatyczne przeliczanie wartości odżywczych na podstawie wprowadzonej wagi w gramach.
-* **Gotowe, gdy:** Wpisanie frazy wyszukuje produkt z bazy, a podanie wagi $200\text{ g}$ podwaja wartości makro dodawane do dziennika.
-
-### 3. Dodawanie własnego produktu
-* **Co robi użytkownik:** Wypełnia formularz dodawania nowego produktu (nazwa, kalorie, białko, węglowodany, tłuszcze na $100\text{ g}$) np. nowego napoju energetycznego.
-* **Widok:** `/produkty/nowy`
-* **Dane:** Formularz wysyła żądanie `POST /api/products` ze flagą `is_approved = false`.
-* **Najtrudniejsze:** Walidacja formularza (brak wartości ujemnych, sprawdzanie sumy makroskładników).
-* **Gotowe, gdy:** Produkt pojawia się na prywatnej liście użytkownika, a w bazie ląduje w kolejce oczekujących dla Administratora.
-
-### 4. Panel Moderacji i Akceptacji Admina
-* **Co robi użytkownik:** Administrator przegląda zgłoszone przez społeczność produkty i jednym kliknięciem akceptuje je (przenosząc do bazy globalnej) lub odrzuca.
-* **Widok:** `/admin`
-* **Dane:** Zapytania REST API (`GET /api/admin/pending` oraz `PUT /api/admin/approve/{id}`).
-* **Najtrudniejsze:** Ograniczenie dostępu do widoku tylko dla kont z rolą `ADMIN` (Protected Route).
-* **Gotowe, gdy:** Po zatwierdzeniu przez admina nowy produkt staje się widoczny w wyszukiwarce dla wszystkich pozostałych użytkowników.
+### Szczegóły funkcji:
+1. **Wyszukiwanie produktów ([#3](../../issues/3)):** Wyszukiwarka z opóźnieniem (debounce 300 ms) oraz `AbortController` łącząca lokalne API, własne produkty oraz Open Food Facts. Obsługuje przeliczanie kcal i B/W/T na bieżąco dla podanej gramatury.
+2. **Dziennik posiłków i bilans dnia ([#4](../../issues/4)):** Widok dzienny grupujący wpisy według posiłków (Śniadanie, II śniadanie, Obiad, Kolacja, Przekąska), zliczający sumę kalorii i makroskładników oraz wizualizujący cel na pasku postępu.
+3. **Dodawanie własnych produktów ([#5](../../issues/5)):** Formularz dodawania nowych produktów (wartości na 100 g) z walidacją zakresów liczbowych (`B + W + T ≤ 100 g`) i statusem oczekiwania na akceptację.
+4. **Kalkulator zapotrzebowania kalorycznego ([#6](../../issues/6)):** Obliczanie BMR i TDEE na podstawie wzoru Mifflin-St Jeor oraz współczynnika aktywności (PAL) z możliwością zapisu jako dzienny cel.
+5. **Panel moderacji administratora ([#7](../../issues/7)):** Widok zatwierdzania i odrzucania produktów zgłoszonych przez użytkowników.
+6. **Rejestracja, logowanie i role użytkowników ([#8](../../issues/8)):** Obsługa kont użytkowników (`USER` / `ADMIN`), formularze logowania/rejestracji oraz ochrona tras (`ProtectedRoute`).
 
 ---
 
@@ -79,7 +57,7 @@ NutriTrack to intuicyjna aplikacja webowa służąca do kompleksowego prowadzeni
 * **Baza danych:** PostgreSQL pod zarządzaniem SQLAlchemy (tabele: `users`, `products`, `daily_logs`, `log_entries`).
 * **Komunikacja:** Zapytania `HTTP/REST` realizowane za pomocą biblioteki Axios z backendem FastAPI na porcie `8000`.
 
-**Struktura Katalogów:**
+**📁Struktura Katalogów:**
 ```text
 frontend_project/
 ├── backend/            # Kod źródłowy API w FastAPI
@@ -98,34 +76,61 @@ frontend_project/
 └── README.md           # Dokumentacja projektu
 ```
 
-## Uruchomienie
+## 🚀 Uruchomienie projektu lokalnie
+### Wymagania wstępne
+- **Docker** i **Docker Compose**
+- **Python 3.11+**
+- **Node.js 18+** oraz **npm**
 
-### Wymagania
-* Docker Desktop & Python 3.10+ & Node.js
+1. Konfiguracja zmiennych środowiskowych
 
-### 1. Baza Danych (Docker)
-```bash
-# Uruchomienie bazy danych PostgreSQL na porcie 5435
+Utwórz plik .env w głównym katalogu repozytorium:
+
+DB_HOST=localhost
+DB_PORT=5435
+DB_NAME=fit_tracker_db
+DB_USER=fit_user
+DB_PASSWORD=fit_password
+
+
+Utwórz plik .env w katalogu frontend/:
+
+VITE_API_URL=http://localhost:8000
+
+
+2. Uruchomienie bazy danych (PostgreSQL)
+
+W głównym katalogu projektu uruchom kontener z bazą danych:
+
 docker-compose up -d
-```
 
-### 2. Backend (FastAPI)
-```bash
+
+3. Uruchomienie backendu (FastAPI)
+
+Przejdź do katalogu backend, utwórz i aktywuj środowisko wirtualne, zainstaluj zależności i uruchom serwer API:
+
 cd backend
 python -m venv venv
-# Aktywacja środowiska:
-# Linux/macOS: source venv/bin/activate | Windows: venv\Scripts\activate
+
+# Windows (PowerShell):
+.\venv\Scripts\activate
+# Linux / macOS:
+# source venv/bin/activate
+
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
-```
-*Dokumentacja Swagger UI dostępna pod adresem: `http://localhost:8000/docs`*
 
-### 3. Frontend
-```bash
+
+Dokumentacja interaktywna API (Swagger UI) jest dostępna pod adresem: http://localhost:8000/docs.
+
+4. Uruchomienie frontendu (React + Vite)
+
+W osobnym terminalu przejdź do katalogu frontend, zainstaluj pakiety i uruchom serwer deweloperski:
+
+cd frontend
 npm install
 npm run dev
-```
 
-## Wdrożenie
 
-* Aplikacja zostanie wdrożona na platformie Vercel / Render: *(link zostanie dodany w etapie M2)*
+Aplikacja jest dostępna w przeglądarce pod adresem: http://localhost:5173.
+
