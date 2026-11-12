@@ -82,33 +82,33 @@ frontend_project/
 - **Python 3.11+**
 - **Node.js 18+** oraz **npm**
 
-1. Konfiguracja zmiennych środowiskowych
+### 1. Konfiguracja zmiennych środowiskowych
 
-Utwórz plik .env w głównym katalogu repozytorium:
-
+Utwórz plik `.env` w głównym katalogu repozytorium:
+```env
 DB_HOST=localhost
 DB_PORT=5435
 DB_NAME=fit_tracker_db
 DB_USER=fit_user
 DB_PASSWORD=fit_password
+```
 
-
-Utwórz plik .env w katalogu frontend/:
-
+Utwórz plik `.env` w katalogu `frontend/`:
+```env
 VITE_API_URL=http://localhost:8000
+```
 
-
-2. Uruchomienie bazy danych (PostgreSQL)
+### 2. Uruchomienie bazy danych (PostgreSQL)
 
 W głównym katalogu projektu uruchom kontener z bazą danych:
-
+```bash
 docker-compose up -d
+```
 
+### 3. Uruchomienie backendu (FastAPI)
 
-3. Uruchomienie backendu (FastAPI)
-
-Przejdź do katalogu backend, utwórz i aktywuj środowisko wirtualne, zainstaluj zależności i uruchom serwer API:
-
+Przejdź do katalogu `backend`, utwórz i aktywuj środowisko wirtualne, zainstaluj zależności i uruchom serwer API:
+```bash
 cd backend
 python -m venv venv
 
@@ -119,18 +119,16 @@ python -m venv venv
 
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
+```
+Dokumentacja interaktywna API (Swagger UI) jest dostępna pod adresem: `http://localhost:8000/docs`.
 
+### 4. Uruchomienie frontendu (React + Vite)
 
-Dokumentacja interaktywna API (Swagger UI) jest dostępna pod adresem: http://localhost:8000/docs.
-
-4. Uruchomienie frontendu (React + Vite)
-
-W osobnym terminalu przejdź do katalogu frontend, zainstaluj pakiety i uruchom serwer deweloperski:
-
+W osobnym terminalu przejdź do katalogu `frontend`, zainstaluj pakiety i uruchom serwer deweloperski:
+```bash
 cd frontend
 npm install
 npm run dev
-
-
-Aplikacja jest dostępna w przeglądarce pod adresem: http://localhost:5173.
+```
+Aplikacja jest dostępna w przeglądarce pod adresem: `http://localhost:5173`.
 
